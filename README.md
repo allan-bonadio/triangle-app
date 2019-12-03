@@ -39,3 +39,5 @@ Error handling is probably half of the application; numbers can be entered incor
 Overall I tried to use TS widgets and classes for the text area, following the documentation on github.  There was no SVG panel I could find, so I just did that myself and set some css style for the elements.
 
 The function figureOutEverything() is too big; there's a long gauntlet of errors to check for.  This is why it uses a single string and just appends on error messages as they come up.  If this was a longer-term project, I'd break it up.  whatKindOfTriangle() is kindof awkward the way it returns values; I'd clean that up too if there was more time.
+
+I used Jasmine for the unit tests as I'm most familiar with it, although mocha/chai was also a viable option.  Once you get the hang of it, unit tests are easy.
