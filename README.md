@@ -28,9 +28,14 @@ for testing:
 * triangle-app.test.js - the spec/test file with jasmine tests
 
 
-## Colophon
+## Design Decisions
 
-I was going to write this in React, but I created an app and node_modules had like 1000 modules in it.  Exactly 1000 in fact.  And I thought, this is a simple project, there shouldn't be 1000 of anything.  So I did it in plain JS/HTML/jQuery.
+I was going to write this in React, but I created an app and node_modules had like 1000 modules in it.  Exactly 1000 in fact.  And I thought, this is a simple project, there shouldn't be 1000 of anything.  So I did it in plain JS/HTML/jQuery with a few small files.  In practice, there's a lot of things that come easy with a node.js setup, like adding test libraries.
 
-The SVG I added thinking it would be easy.  Was more details than I expected.  It was just for fun.  It forced me to confront situations where the three numbers didn't make a triangle, which should also be handled.
+The SVG I added thinking it would be easy.  Was more details than I expected.  It was just for fun.  It forced me to confront situations where the three numbers didn't make a triangle, which should also be handled.  SVG was chosen instead of Canvas as I'm more familiar with SVG, but drawing in the Canvas was also an option.
 
+Error handling is probably half of the application; numbers can be entered incorrectly, and it's very easy to type in three numbers that can't make a triangle.  
+
+Overall I tried to use TS widgets and classes for the text area, following the documentation on github.  There was no SVG panel I could find, so I just did that myself and set some css style for the elements.
+
+The function figureOutEverything() is too big; there's a long gauntlet of errors to check for.  This is why it uses a single string and just appends on error messages as they come up.  If this was a longer-term project, I'd break it up.  whatKindOfTriangle() is kindof awkward the way it returns values; I'd clean that up too if there was more time.
