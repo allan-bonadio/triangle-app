@@ -10,10 +10,6 @@ ts.ui.ready(function() {
 	
 	setEvents();
 	figureOutEverything();
-
-
-	//var component = ts.ui.get(element);
-	//component.dosomething();
 });
 
 function closeEnough(a, b) {
@@ -32,7 +28,7 @@ Write equations for the three lengths as A**2 = (vector ab - vector ca)**2
 and simplify because of zeroes.  Some algebra gets you to:
 2 bcx A = A**2 + B**2 - C**2
 and bcy = sqrt(B**2 - bcx**2)
-and probably a negative under the square root means an impossible triangle 
+and a negative under the square root means an impossible triangle 
 (one side way too large)
 */
 
@@ -172,8 +168,7 @@ function figureOutEverything(inputBox, side) {
 
 /* ********************************************* input events */
 
-
-
+// handles each keystroke
 function inputHandler(target, side) {
 	// input type Number just filters characters, so it does allow two 
 	// decimal pts and two Es and assorted + and - in the wrong places
@@ -192,10 +187,10 @@ function inputHandler(target, side) {
 	figureOutEverything(target, side);
 }
 
+// wires up the input boxes to respond to events
 function setEvents() {
 	$('#length-A, #length-B, #length-C').on('input', ev => {
 		let side = ev.target.id.substr(7);
 		inputHandler(ev.target, side);
 	});
-
 }
