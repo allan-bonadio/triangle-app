@@ -1,0 +1,114 @@
+<link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-3.5.0/jasmine_favicon.png">
+<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-3.5.0/jasmine.css">
+
+<script type="text/javascript" src="jasmine/lib/jasmine-3.5.0/jasmine.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-3.5.0/jasmine-html.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-3.5.0/boot.js"></script>
+<script type="text/javascript" src="triangle-app.test.js"></script>
+<script>
+	setTimeout(() => {
+		$('.ts-app').css('min-width', '50%');
+	}, 1000);
+</script>
+
+<!DOCTYPE html>
+<html>
+	<!-- 
+		triangle app - project for Tradeshift
+		(C) 2019 Allan Bonadio -->
+	<head>
+		<title>Triangle App</title>
+		<meta name="viewport" content="width=device-width"/>
+		<meta name="ts-app-title" content="Triangle App"/>
+		<link rel="icon" href="icon.png"/>
+		<link rel="ts-app-icon" href="icon.png"/>
+		<link rel="stylesheet" href="https://d5wfroyti11sa.cloudfront.net/prod/client/ts-12.3.6.min.css"/>
+		<script src="https://d5wfroyti11sa.cloudfront.net/prod/client/ts-12.3.6.min.js"></script>
+		<script src="jquery.js"></script>
+		<script src="triangle-app.js"></script>
+	</head>
+	<body>
+		<div data-ts="App">
+			<div data-ts="Main">
+				<div data-ts="Content">
+					<div data-ts="Panel">
+<!-- =========================== reset of indentation ====================== -->
+
+<form data-ts="Form">
+	&nbsp; How long is each side of your triangle?
+	<fieldset>
+		<div>
+			<label>
+				<span>&nbsp; Side A:</span>
+				<input type="number" id='length-A' value='3' />
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>&nbsp; Side B:</span>
+				<input type="number" id='length-B' value='4' />
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>&nbsp; Side C:</span>
+				<input type="number" id='length-C' value='5' />
+			</label>
+		</div>
+	</fieldset>
+	<dl id='input-error' class="ts-errors" style='display: none'>
+		<dt>Bad Scene</dt>
+		<dd>Please correct your syntax.
+		</dd>
+	</dl>
+	<dl id='result' class="ts-info">
+		<dt>Scalene</dt>
+		<dd>All sides are unequal.</dd>
+	</dl>
+</form>
+
+
+<!-- this actually draws the triangle as the user tweaks the numbers -->
+<svg width=350 height=350 viewBox='-25 -25 325 325' >
+	<style>
+		svg {
+			background-color: #e6ecee;
+		}
+		line {
+			stroke: #008;
+			stroke-width: 3px;
+		}
+		circle {
+			r: 5px;
+			fill: #008;
+		}
+		text {
+			fill: #048;
+			font-weight: bold;
+			font-style: italic;
+			font-family: palatino;
+		}
+	</style>
+		
+	<line id='A' x1=0 y1=0 x2=100 y2=0 ></line>
+		<text id=A-text x=0 y=0>A</text>
+	<line id='B' x1=0 y1=0 x2=100 y2=200 ></line>
+		<text id=B-text x=0 y=0>B</text>
+	<line id='C' x1=100 y1=0 x2=100 y2=0 ></line>
+		<text id=C-text x=0 y=0>C</text>
+
+	<circle id='ab' cx=0 cy=0></circle>
+		<text id=ab-text x=0 y=-20>ab</text>
+	<circle id='bc' cx=200 cy=100></circle>
+		<text id=bc-text x=200 y=80>bc</text>
+	<circle id='ca' cx=100 cy=0></circle>
+		<text id=ca-text x=100 y=-20>ca</text>
+</svg>
+
+<!-- ========================== end of indentation reset =================== -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
